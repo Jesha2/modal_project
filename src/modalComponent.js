@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import './ModalComponent.css' ;
 
 const Backdrop = (props)=>{
     return(
@@ -16,7 +17,7 @@ const Backdrop = (props)=>{
     </div>
     )
   }
-const modalComponent = (props) => {
+const ModalComponent = (props) => {
   return (
     <React.Fragment>
 
@@ -27,4 +28,4 @@ const modalComponent = (props) => {
   )
 }
 
-export default modalComponent
+export default ModalComponent;
