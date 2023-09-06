@@ -2,7 +2,8 @@
 import './App.css';
 import { useState } from 'react';
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import ModalComponent from './ModalComponent';
 
 function App() {
  
@@ -47,21 +48,7 @@ function App() {
     openModal(); // Open the modal when the form is submitted
     window.addEventListener('keydown', handleEscapeKey);
   }
-  const Backdrop = (props)=>{
-    return(
-      //className="backdrop" onClick={closeModal}
-      <div className="backdrop" onClick={props.onConfirm} />
-    )
-  }
-  const ModalOverLay = (props)=>{
-    return(
-      <div className="modal">
-      <h2>Hello, {props.name}!</h2>
-      <p>Your favorite color is {props.color}.</p>
-      <button onClick={props.onConfirm}>Close</button>
-    </div>
-    )
-  }
+  ;
   // div> 
   //              <div className="backdrop" onClick={closeModal} > </div>
   //              <div className="modal" >
@@ -72,18 +59,13 @@ function App() {
   //         </div>
 
   return (
+   
+
     <div className="App">
       <header className="App-header">
 
-      {isModalOpen && (
-        <React.Fragment>
-
-          {ReactDOM.createPortal(<Backdrop onConfirm={closeModal}/>, document.getElementById("backdrop-root"))}
-          {ReactDOM.createPortal(<ModalOverLay name={name}  color={color} onConfirm={closeModal}/>, document.getElementById("overlay-root"))}
-
-        </React.Fragment>
-
-           
+      {isModalOpen && ( 
+         <ModalComponent onConfirm={closeModal} name={name}  color={color}/>     
         )}
         
         <form onSubmit={onSubmitHandler}>
